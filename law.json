@@ -1,0 +1,51 @@
+{
+    "sections": [{
+        "title": "Başlangıç",
+        "subsections": [{
+                "letter": "A",
+                "name": "Hukukun uygulanması ve kaynakları",
+                "laws": [{
+                    "number": 1,
+                    "law": "Kanun, sözüyle ve özüyle değindiği bütün konularda uygulanır. Kanunda uygulanabilir bir hüküm yoksa,  hâkim, örf ve âdet hukukuna göre, bu da yoksa kendisi kanun koyucu olsaydı nasıl bir kural koyacak idiyse ona göre karar verir. Hâkim, karar verirken bilimsel görüşlerden ve yargı kararlarından yararlanır.",
+                    "subsection": ""
+                }]
+            }, {
+                "letter": "B",
+                "name": "Hukukî  ilişkilerin kapsamı",
+                "laws": [{
+                    "number": 2,
+                    "law": "Herkes, haklarını kullanırken ve borçlarını yerine getirirken dürüstlük kurallarına uymak zorundadır. Bir hakkın açıkça kötüye kullanılmasını hukuk düzeni korumaz.",
+                    "subsection": "Dürüst davranma"
+                }, {
+                    "number": 3,
+                    "law": "Kanunun iyiniyete hukukî bir sonuç bağladığı durumlarda, asıl olan iyiniyetin varlığıdır. Ancak, durumun gereklerine göre kendisinden beklenen özeni göstermeyen kimse iyiniyet iddiasında bulunamaz.",
+                    "subsection": "İyiniyet"
+                }, {
+                    "number": 4,
+                    "law": "Kanunun takdir yetkisi tanıdığı veya durumun gereklerini ya da haklı sebepleri göz önünde tutmayı emrettiği konularda hâkim, hukuka ve hakkaniyete göre karar verir.",
+                    "subsection": "Hâkimin takdir yetkisi"
+                }]
+            }, {
+                "letter": "C",
+                "name": "Genel nitelikli hükümler",
+                "laws": [{
+                    "number": 5,
+                    "law": "Bu Kanun ve Borçlar Kanununun genel nitelikli hükümleri, uygun düştüğü ölçüde tüm özel hukuk ilişkilerine uygulanır.",
+                    "subsection": ""
+                }]
+            }, {
+                "letter": "D",
+                "name": "İspat kuralları",
+                "laws": [{
+                    "number": 6,
+                    "law": "Kanunda aksine bir hüküm bulunmadıkça, taraflardan her biri, hakkını dayandırdığı olguların varlığını ispatla yükümlüdür.",
+                    "subsection": "İspat yükü"
+                }, {
+                    "number": 7,
+                    "law": "Resmî sicil ve senetler, belgeledikleri olguların doğruluğuna kanıt oluşturur. Bunların içeriğinin doğru olmadığının ispatı, kanunlarda başka bir hüküm bulunmadıkça, her hangi bir şekle bağlı değildir.",
+                    "subsection": "Resmî belgelerle ispat"
+                }]
+            }
+        ]
+    }]
+}
