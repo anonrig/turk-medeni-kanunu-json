@@ -1,0 +1,106 @@
+/*
+ * Classic example grammar, which recognizes simple arithmetic expressions like
+ * "2*(3+4)". The parser generated from this grammar then computes their value.
+ */
+
+{
+  function makearray(a,b){
+    b.unshift(a);
+    return b;
+  }
+  function satirduzelt(s) {
+    if(!s.length)
+    for(var i = 0; i<s.length; i++){
+      if(s[i].length && typeof s[i] != "string"){
+        s[i]=s[i].join("");
+      }
+    }
+    return s.join("");
+  }
+}
+
+start = kitaplarveyabaslangic
+madde = a:mad s b:madde {return makearray(a,b)}
+      / c:mad {return [c]}
+mad = "MADDE " m:$([0-9]+) ".- " " "? s:satirlar {return {m:m, i:s}}
+satirlar
+  = a:satir s b:satirlar {return makearray(a,b)}
+  / c:satir {return [c]}
+satir
+  = $([^\.][^\.A-ZĞÜŞİÖÇÎÛÂ][^\.][^\.][^\.][^\n]+)
+
+
+
+yaziylasira
+  = "BİRİNCİ"
+  / "İKİNCİ"
+  / "ÜÇÜNCÜ"
+  / "DÖRDÜNCÜ"
+  / "BEŞİNCİ"
+  / "ALTINCI"
+  / "YEDİNCİ"
+
+s = ([ ]*"\n")
+grupadi
+  = $([A-z ĞÜŞİÖÇÎÂ,]+)
+sirali
+  = sirano ". " baslik 
+baslik
+  = $ [^\n]+ 
+sirano = buyukharf / kucukharf / romen / sayi
+sayi = [0-9]+
+buyukharf = [ABCDEFGHİJKL]
+kucukharf = [abcdefghijkl]
+romen = [IVX]+
+kitaplarveyabaslangic
+  = kitaplar
+  / "BAŞLANGIÇ" s buyukharfgruplar s i:kitaplar {return {o:"", b:"BAŞLANGIÇ", i:i}}
+kitaplar = a:kitap s b:kitaplar {return makearray(a,b)} 
+         / c:kitap {return [c]}
+
+kitap
+  = o:$(yaziylasira " KİTAP") s b:grupadi s i:kisimlarveyabuyukharfgruplar {return {o:o,b:b,i:i}}
+kisimlar
+  = a:kisim s b:kisimlar {return makearray(a,b)} 
+  / c:kisim {return [c]}
+kisim
+  = o:$(yaziylasira " KISIM") s b:grupadi s i:bolumlerveyabuyukharfgruplar {return {o:o,b:b,i:i}}
+bolumler
+  = a:bolum s b:bolumler {return makearray(a,b)} 
+  / c:bolum {return [c]}
+bolum
+  = o:$(yaziylasira " BÖLÜM") s b:grupadi s i:ayrimlarveyabuyukharfgruplar {return {o:o,b:b,i:i}}
+ayrimlar
+  = a:ayrim s b:ayrimlar {return makearray(a,b)} 
+  / c:ayrim {return [c]}
+ayrim = o:$(yaziylasira " AYIRIM") s b:grupadi s i:buyukharfgruplar {return {o:o,b:b,i:i}}
+
+ayrimlarveyabuyukharfgruplar = ayrimlar / buyukharfgruplar
+kisimlarveyabuyukharfgruplar = kisimlar / buyukharfgruplar
+bolumlerveyabuyukharfgruplar = bolumler / buyukharfgruplar
+
+buyukharfgruplar
+  = a:buyukharfgrup s b:buyukharfgruplar {return makearray(a,b)}
+  / c:buyukharfgrup {return [c]}
+romengruplar
+  = a:romengrup s b:romengruplar {return makearray(a,b)}
+  / c:romengrup {return [c]}
+sayigruplar
+  = a:sayigrup s b:sayigruplar {return makearray(a,b)} 
+  / c:sayigrup {return [c]}
+kucukharfgruplar
+  = a:kucukharfgrup s b:kucukharfgruplar {return makearray(a,b)}
+  / c:kucukharfgrup {return [c]}
+
+buyukharfgrup
+  = o:buyukharf "." " "? b:baslik s i:romengruplarveyamadde {return {o:o, b:b, i:i}}
+romengrup
+  = r:$ romen "." " "? b:baslik s i:sayigruplarveyamadde {return {o:r, b:b, i:i}}
+kucukharfgrup
+  = o:kucukharf ". " b:baslik s i:madde {return {o:o, b:b, i:i}}
+sayigrup
+  = o:sayi "." " "? b:baslik s i:kucukharfgruplarveyamadde {return {o:o, b:b, i:i}}
+
+sayigruplarveyamadde = sayigruplar / madde
+kucukharfgruplarveyamadde = kucukharfgruplar / madde
+romengruplarveyamadde = romengruplar / madde
