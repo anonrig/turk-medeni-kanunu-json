@@ -24,8 +24,8 @@ madde = a:mad s b:madde {return makearray(a,b)}
       / c:mad {return [c]}
 mad = "MADDE " m:$([0-9]+) ".- " " "? s:satirlar {return {m:m, i:s}}
 satirlar
-  = a:satir s b:satirlar {return makearray(a,b)}
-  / c:satir {return [c]}
+  = a:satir s b:satirlar {return a+"\\n"+b}
+  / c:satir {return c}
 satir
   = $([^\.][^\.A-ZĞÜŞİÖÇÎÛÂ][^\.][^\.][^\.][^\n]+)
 
@@ -99,7 +99,7 @@ romengrup
 kucukharfgrup
   = o:kucukharf ". " b:baslik s i:madde {return {o:o, b:b, i:i}}
 sayigrup
-  = o:sayi "." " "? b:baslik s i:kucukharfgruplarveyamadde {return {o:o, b:b, i:i}}
+  = o:$ sayi "." " "? b:baslik s i:kucukharfgruplarveyamadde {return {o:o, b:b, i:i}}
 
 sayigruplarveyamadde = sayigruplar / madde
 kucukharfgruplarveyamadde = kucukharfgruplar / madde
