@@ -54,7 +54,7 @@ kucukharf = [abcdefghijkl]
 romen = [IVX]+
 kitaplarveyabaslangic
   = kitaplar
-  / "BAŞLANGIÇ" s buyukharfgruplar s i:kitaplar {return {o:"", b:"BAŞLANGIÇ", i:i}}
+  / "BAŞLANGIÇ" s i:buyukharfgruplar s k:kitaplar {return makearray({o:"", b:"BAŞLANGIÇ", i:i},k)}
 kitaplar = a:kitap s b:kitaplar {return makearray(a,b)} 
          / c:kitap {return [c]}
 
